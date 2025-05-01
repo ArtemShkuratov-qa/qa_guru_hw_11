@@ -3,7 +3,7 @@ import allure
 from qa_guru_hw_11.data import users
 from qa_guru_hw_11.pages.registration_page import RegistrationPage
 
-def test_demo_qa(setup_browser):
+def test_demo_qa():
     registration_page = RegistrationPage()
     test_profile = users.student
 
