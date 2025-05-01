@@ -3,7 +3,7 @@ import allure
 from qa_guru_hw_11.data import users
 from qa_guru_hw_11.pages.registration_page import RegistrationPage
 
-def test_demo_qa():
+def test_demo_qa(setup_browser):
     registration_page = RegistrationPage()
     test_profile = users.student
     with allure.step("Открываем главую страницу GitHub"):
