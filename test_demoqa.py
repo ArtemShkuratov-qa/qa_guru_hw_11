@@ -3,7 +3,7 @@ import allure
 from qa_guru_hw_11.data import users
 from qa_guru_hw_11.pages.registration_page import RegistrationPage
 
-def test_demo_qa():
+def test_demo_qa(setup_browser):
     registration_page = RegistrationPage()
     test_profile = users.student
 
@@ -13,7 +13,7 @@ def test_demo_qa():
     with allure.step('Регистрируем студента'):
         registration_page.register(test_profile)
 
-    with allure.step('Проверяем, что данные сохраненын корректно'):
+    with allure.step('Проверяем, что данные сохранены корректно'):
         registration_page.should_have_data(test_profile)
 
 

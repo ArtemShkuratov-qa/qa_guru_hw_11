@@ -12,7 +12,7 @@ import os
 def load_env():
     load_dotenv()
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope='function')
 def setup_browser(request):
     options = Options()
     selenoid_capabilities = {
