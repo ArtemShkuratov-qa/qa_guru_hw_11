@@ -1,4 +1,4 @@
-from selene import browser, be, have
+from selene import browser, be, have, by
 import os
 
 from qa_guru_hw_11.data.users import User
@@ -43,7 +43,7 @@ class RegistrationPage:
         return self
 
     def fill_hobbies(self, value):
-        browser.all('.custom-checkbox').element_by(have.exact_text(value)).click()
+        browser.element("#hobbiesWrapper").element(by.text(value)).click()
         return self
 
     def upload_img(self, value):
