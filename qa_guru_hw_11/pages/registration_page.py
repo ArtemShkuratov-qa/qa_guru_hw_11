@@ -1,4 +1,4 @@
-from selene import browser, be, have, by
+from selene import browser, be, have, by, command
 import os
 
 from qa_guru_hw_11.data.users import User
@@ -8,8 +8,12 @@ class RegistrationPage:
 
     def open(self):
         browser.open('/automation-practice-form')
-        browser.execute_script('document.querySelector("footer").remove()')
-        browser.execute_script('document.querySelector("#fixedban").remove()')
+        browser.open('/automation-practice-form')
+        browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
+            have.size_greater_than_or_equal(3)
+        )
+        browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
+        return self
 
     def fill_first_name(self, value):
         browser.element('#firstName').should(be.blank).type(value)
