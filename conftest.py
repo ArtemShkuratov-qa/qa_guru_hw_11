@@ -24,6 +24,8 @@ def load_env():
 
 @pytest.fixture(scope='function')
 def setup_browser(request):
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
     options = Options()
@@ -32,8 +34,7 @@ def setup_browser(request):
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": True,
-            "screenResolution": '1920x1080x24'
+            "enableVideo": True
         }
     }
     options.capabilities.update(selenoid_capabilities)
