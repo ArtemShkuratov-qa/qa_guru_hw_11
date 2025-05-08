@@ -8,11 +8,8 @@ class RegistrationPage:
 
     def open(self):
         browser.open('/automation-practice-form')
-        browser.open('/automation-practice-form')
-        browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
-            have.size_greater_than_or_equal(3)
-        )
-        browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
+        browser.driver.execute_script("$('footer').remove()")
+        browser.driver.execute_script("$('#fixedban').remove()")
         return self
 
     def fill_first_name(self, value):
@@ -43,11 +40,12 @@ class RegistrationPage:
         return self
 
     def fill_subjects(self, value):
-        browser.element('#subjectsInput').should(be.blank).type(value).press_enter()
+        browser.element("#subjectsInput").send_keys(value)
+        browser.element("#subjectsInput").press_enter()
         return self
 
     def fill_hobbies(self, value):
-        browser.element("#hobbiesWrapper").element(by.text(value)).click()
+        browser.all('.custom-checkbox').element_by(have.exact_text(value)).click()
         return self
 
     def upload_img(self, value):
