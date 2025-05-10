@@ -29,6 +29,11 @@ class RegistrationPage:
         browser.element('#userEmail').should(be.blank).type(value)
         return self
 
+    def remove_banners(self):
+        browser.driver.execute_script("$('footer').remove()")
+        browser.driver.execute_script("$('#fixedban').remove()")
+        return self
+
     def fill_gender(self, value):
         browser.all('[name=gender]').element_by(have.value(value)).element('..').click()
         return self
@@ -90,6 +95,7 @@ class RegistrationPage:
         self.fill_email(test_profile.email)
         self.fill_gender(test_profile.gender)
         self.fill_number(test_profile.number)
+        self.remove_banners()
         self.fill_date(test_profile.date_of_birth)
         self.fill_subjects(test_profile.subjects)
         self.fill_hobbies(test_profile.hobby)
