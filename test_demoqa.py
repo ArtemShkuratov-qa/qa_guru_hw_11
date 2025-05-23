@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from qa_guru_hw_11.data import users
 from qa_guru_hw_11.pages.registration_page import RegistrationPage
@@ -25,3 +26,16 @@ def test_pass_2():
 
 def test_pass_3():
     pass
+
+
+def test_skip_1():
+    pytest.skip('skipping this test')
+
+def test_skip_2():
+    pytest.skip('skipping this test')
+
+def test_fault_1():
+    pytest.xfail('failing this test')
+
+def test_fault_2():
+    pytest.xfail('failing this test')
