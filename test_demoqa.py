@@ -35,7 +35,7 @@ def test_skip_2():
     pytest.skip('skipping this test')
 
 def test_fault_1():
-    pytest.xfail('failing this test')
+    assert 0
 
 def test_fault_2():
-    pytest.xfail('failing this test')
+    assert 0
