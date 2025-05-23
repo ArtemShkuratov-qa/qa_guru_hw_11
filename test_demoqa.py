@@ -17,3 +17,11 @@ def test_demo_qa(setup_browser):
         registration_page.should_have_data(test_profile)
 
 
+def test_pass_1():
+    pass
+
+def test_pass_2():
+    pass
+
+def test_pass_3():
+    pass
